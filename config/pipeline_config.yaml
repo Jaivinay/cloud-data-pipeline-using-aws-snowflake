@@ -1,0 +1,23 @@
+# Central config - real deployment values go here (or better, environment-specific
+# copies of this file / environment variables for anything secret). Never commit real
+# AWS account IDs, bucket names tied to a real account, or Snowflake account identifiers
+# to a public repo - the values below are placeholders.
+
+aws:
+  region: us-east-1
+  raw_bucket: cloud-pipeline-demo
+  raw_prefix: raw
+  processed_prefix: processed
+  glue_job_name: cloud-pipeline-etl-job
+
+snowflake:
+  account: "<your_account_identifier>"   # e.g. xy12345.us-east-1
+  warehouse: ecommerce_wh
+  database: ecommerce_db
+  schema: analytics
+  # credentials come from env vars (SNOWFLAKE_USER, SNOWFLAKE_PASSWORD), never from this file
+
+pipeline:
+  data_quality_max_null_fraction: 0.0
+  quantity_range: [1, 100]
+  line_total_range: [0, 100000]
